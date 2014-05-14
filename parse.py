@@ -8,6 +8,9 @@ openschedule_credentials = {
          "Content-Type": "application/json"
        }
 
+openschedule_credentials_file = openschedule_credentials
+openschedule_credentials_file["Content-Type"] = "text/plain"
+
 # Cloud Code
 def callCloudCode(function_name, params):
   try:
@@ -102,6 +105,22 @@ def signUp(username, password):
                          "password": password,
                        }),
                        openschedule_credentials)
+    return json.loads(connection.getresponse().read())
+  except:
+    return None
+    
+    openschedule_credentials
+    
+    openschedule_credentials
+# Upload file
+def uploadFile(filename, content):
+  try:
+    connection = httplib.HTTPSConnection('api.parse.com', 443)
+    connection.connect()
+    connection.request('POST',
+                       '/1/files/'+filename,
+                       content,
+                       openschedule_credentials_file)
     return json.loads(connection.getresponse().read())
   except:
     return None

@@ -68,16 +68,6 @@ for i in items:
   else:
     print "ERROR "+i["type"]
 
-for i in subjects:
-  k = subjects[i]
-  for j in (k["lectures"]+k["recitations"]+k["labs"]):
-    s = " ".join(j.split())
-    if len(s.split(" ")) != 3:
-      continue
-      print j
-      print s
-#      exit()
-
 print counter
 #with open("subjects_sp2014_parsed.json", "w") as File:
 #  json.dump(subjects, File)
